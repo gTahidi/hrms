@@ -1,4 +1,4 @@
-version: "3.8" # Updated version
+#version: "3.8" # Updated version
 services:
   mariadb:
     image: mariadb:10.8
@@ -22,7 +22,7 @@ services:
       - SHELL=/bin/bash
     working_dir: /home/frappe
     volumes:
-      - .:/workspace
+      - ..:/workspace:z
     ports:
       - 8450:8000
       - 9450:9000
