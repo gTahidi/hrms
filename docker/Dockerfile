@@ -1,3 +1,6 @@
+FROM frappe/bench:latest as builder
+COPY init.sh /init.sh
+RUN chmod +x /init.sh
+
 FROM frappe/bench:latest
-COPY init.sh /tmp/init.sh
-RUN chmod +x /tmp/init.sh && mv /tmp/init.sh /docker/init.sh
+COPY --from=builder /init.sh /docker/init.sh
